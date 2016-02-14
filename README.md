@@ -10,11 +10,12 @@ Your project evaluator will be able to see all of your code submissions. They wi
 Your grade will simply be "meets specifications," “exceeds specifications,” or "doesn’t meet specifications,"
 You earn “meets specifications” if all criteria in the Required Components section “meet specifications”.
 Your project “doesn’t meet specifications” if any criteria in the Required Components section are graded as “does not meet specifications.” In this case, you will have the opportunity to revise and resubmit your work.
-The Rubric
+
+##The Rubric
 
 To “meet specifications”, your app must fulfill all of the criteria listed in this section of the rubric.
 
-##Criteria
+###Criteria
 
 1. App conforms to common standards found in the Android Nanodegree General Project Guidelines
 2. App uses the Design Support library and its provided widget types (FloatingActionButton, AppBarLayout, SnackBar, etc).
