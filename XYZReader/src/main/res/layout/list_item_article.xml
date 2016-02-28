@@ -16,13 +16,13 @@
         android:orientation="vertical">
 
         <!--suppress AndroidLintContentDescription -->
-        <!--
-        <edu.udacity.xyzreader.ui.DynamicHeightNetworkImageView
+
+        <ImageView
             android:id="@+id/thumbnail"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/photo_placeholder" />
-            -->
+
         <TextView
             android:id="@+id/article_title"
             style="@style/TextAppearance.AppCompat.Subhead"
