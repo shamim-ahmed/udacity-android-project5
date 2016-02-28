@@ -49,7 +49,7 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
             return;
         }
 
-        Picasso.with(context).load(thumbnailUrl).into(thumbnailView);
+        Picasso.with(context).load(thumbnailUrl).fit().centerCrop().into(thumbnailView);
     }
 }
 
