@@ -140,8 +140,8 @@ public class ArticleListActivity extends ActionBarActivity implements
         @Override
         public void onBindViewHolder(CustomViewHolder holder, int position) {
             mCursor.moveToPosition(position);
-            holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-            holder.subtitleView.setText(
+            holder.getTitleView().setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            holder.getSubtitleView().setText(
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                             System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
@@ -149,7 +149,7 @@ public class ArticleListActivity extends ActionBarActivity implements
                             + " by "
                             + mCursor.getString(ArticleLoader.Query.AUTHOR));
 
-            holder.thumbnailView.setImageURI(Uri.parse(
+            holder.getThumbnailView().setImageURI(Uri.parse(
                     mCursor.getString(ArticleLoader.Query.THUMB_URL)));
             //holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
         }
