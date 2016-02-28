@@ -149,8 +149,8 @@ public class ArticleListActivity extends ActionBarActivity implements
                             + " by "
                             + mCursor.getString(ArticleLoader.Query.AUTHOR));
 
-            holder.getThumbnailView().setImageURI(Uri.parse(
-                    mCursor.getString(ArticleLoader.Query.THUMB_URL)));
+            holder.setThumbnailUrl(mCursor.getString(ArticleLoader.Query.THUMB_URL));
+            holder.loadThumbnail(getApplicationContext());
             //holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
         }
 

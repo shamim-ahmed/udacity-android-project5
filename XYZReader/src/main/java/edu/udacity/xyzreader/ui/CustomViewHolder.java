@@ -1,9 +1,12 @@
 package edu.udacity.xyzreader.ui;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import edu.udacity.xyzreader.R;
 
@@ -11,6 +14,8 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
     private final ImageView thumbnailView;
     private final TextView titleView;
     private final TextView subtitleView;
+
+    private String thumbnailUrl;
 
     public CustomViewHolder(View view) {
         super(view);
@@ -29,6 +34,22 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
 
     public ImageView getThumbnailView() {
         return thumbnailView;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
+
+    public void loadThumbnail(Context context) {
+        if (thumbnailUrl == null) {
+            return;
+        }
+
+        Picasso.with(context).load(thumbnailUrl).into(thumbnailView);
     }
 }
 
