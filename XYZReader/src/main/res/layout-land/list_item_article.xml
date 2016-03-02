@@ -21,7 +21,7 @@
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@color/photo_placeholder" />
+            android:background="@color/gray_300" />
 
         <TextView
             android:id="@+id/article_title"
