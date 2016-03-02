@@ -7,10 +7,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -96,13 +96,29 @@ public class ArticleListActivity extends ActionBarActivity implements
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        Adapter adapter = new Adapter(cursor);
+        CustomAdapter adapter = new CustomAdapter(cursor);
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
-        int columnCount = getResources().getInteger(R.integer.list_column_count);
-        StaggeredGridLayoutManager sglm =
-                new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(sglm);
+
+        String displaySpec = getString(R.string.display_spec);
+
+        switch (displaySpec) {
+            case "default": {
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+                mRecyclerView.setLayoutManager(layoutManager);
+                break;
+            }
+
+            default: {
+                int columnCount = getResources().getInteger(R.integer.list_column_count);
+                StaggeredGridLayoutManager sglm =
+                        new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
+                mRecyclerView.setLayoutManager(sglm);
+
+                break;
+            }
+        }
+
     }
 
     @Override
@@ -110,10 +126,10 @@ public class ArticleListActivity extends ActionBarActivity implements
         mRecyclerView.setAdapter(null);
     }
 
-    private class Adapter extends RecyclerView.Adapter<CustomViewHolder> {
+    private class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         private Cursor mCursor;
 
-        public Adapter(Cursor cursor) {
+        public CustomAdapter(Cursor cursor) {
             mCursor = cursor;
         }
 
