@@ -4,6 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+/**
+ * A subclass of ImageView that renders images with 3:2 aspect ratio
+ * @author shamimahmed
+ */
 public class ThreeTwoImageView extends ImageView {
     public ThreeTwoImageView(Context context) {
         super(context);
