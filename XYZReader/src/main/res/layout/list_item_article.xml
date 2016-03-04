@@ -22,9 +22,9 @@
             android:background="@color/gray_300"
             android:scaleType="centerCrop"/>
 
-        <View android:background="@drawable/image_gradient"
+        <View android:background="@drawable/scrim"
               android:layout_width="match_parent"
-              android:layout_height="150dp"
+              android:layout_height="175dp"
               android:layout_gravity="bottom"/>
 
         <LinearLayout
@@ -39,6 +39,7 @@
                     android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:paddingLeft="16dp"
                     android:paddingTop="16dp"
                     android:paddingRight="16dp"
