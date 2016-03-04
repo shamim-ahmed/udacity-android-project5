@@ -15,7 +15,7 @@
 
         <!--suppress AndroidLintContentDescription -->
 
-        <edu.udacity.xyzreader.util.ThreeTwoImageView
+        <edu.udacity.xyzreader.ui.ThreeTwoImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="0dp"
