@@ -20,7 +20,7 @@
                     android:id="@+id/photo_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/deep_purple_300">
+                    android:background="@color/gray_300">
 
                 <edu.udacity.xyzreader.ui.ThreeTwoImageView
                         android:id="@+id/photo"
