@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/deep_purple_500</item>
         <item name="colorPrimaryDark">@color/deep_purple_700</item>
-        <item name="colorAccent">@color/pink_a200</item>
+        <item name="colorAccent">@color/pink_300</item>
         <item name="actionBarSize">72dp</item>
     </style>
 </resources>
