@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resources>
-    <color name="white">#FFFFFF</color>
-    <color name="gray_300">#E0E0E0</color>
+    <!-- theme colors -->
     <color name="deep_purple_300">#9575CD</color>
     <color name="deep_purple_500">#673AB7</color>
     <color name="deep_purple_700">#512DA8</color>
     <color name="pink_300">#F06292</color>
+
+    <!-- misc colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="blue">#0B0080</color>
 </resources>
