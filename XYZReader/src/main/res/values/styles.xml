@@ -5,6 +5,6 @@
         <item name="colorPrimary">@color/deep_purple_500</item>
         <item name="colorPrimaryDark">@color/deep_purple_700</item>
         <item name="colorAccent">@color/pink_300</item>
-        <item name="actionBarSize">72dp</item>
+        <item name="actionBarSize">50dp</item>
     </style>
 </resources>
