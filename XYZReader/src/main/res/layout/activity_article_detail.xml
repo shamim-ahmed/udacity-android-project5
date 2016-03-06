@@ -7,7 +7,7 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="116dp"/>
+        android:paddingTop="@dimen/article_detail_padding_top"/>
 
     <FrameLayout
             android:id="@+id/toolbar_container"
