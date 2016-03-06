@@ -10,4 +10,6 @@
     <string name="up">Up</string>
     <string name="display_spec" translatable="false">default</string>
 
+    <string name="transition_photo">transitionPhoto</string>
+
 </resources>
