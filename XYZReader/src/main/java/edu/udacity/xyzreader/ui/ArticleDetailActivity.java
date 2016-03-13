@@ -15,8 +15,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowInsets;
+import android.widget.ImageView;
 
 import edu.udacity.xyzreader.R;
 import edu.udacity.xyzreader.data.ArticleLoader;
@@ -36,6 +35,7 @@ public class ArticleDetailActivity extends ActionBarActivity
 
     private ViewPager mPager;
     private MyPagerAdapter mPagerAdapter;
+    private ImageView mImageView;
     private Toolbar mToolbar;
 
     @Override
@@ -82,6 +82,7 @@ public class ArticleDetailActivity extends ActionBarActivity
         // back button in toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar_article_detail);
         setSupportActionBar(mToolbar);
+        mImageView = (ImageView) findViewById(R.id.photo);
 
         ActionBar actionBar = getSupportActionBar();
 
@@ -129,18 +130,9 @@ public class ArticleDetailActivity extends ActionBarActivity
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
-            super.setPrimaryItem(container, position, object);
-            ArticleDetailFragment fragment = (ArticleDetailFragment) object;
-            if (fragment != null) {
-                mSelectedItemUpButtonFloor = fragment.getUpButtonFloor();
-            }
-        }
-
-        @Override
         public Fragment getItem(int position) {
             mCursor.moveToPosition(position);
-            return ArticleDetailFragment.newInstance(mCursor.getLong(ArticleLoader.Query._ID));
+            return ArticleDetailFragment.newInstance(mCursor.getLong(ArticleLoader.Query._ID), mImageView);
         }
 
         @Override
