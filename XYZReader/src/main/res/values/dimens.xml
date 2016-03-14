@@ -13,5 +13,7 @@
     <dimen name="article_detail_padding_top">72dp</dimen>
 
     <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="expand_title_margin_start">48dp</dimen>
+    <dimen name="expand_title_margin_end">64dp</dimen>
 
 </resources>
