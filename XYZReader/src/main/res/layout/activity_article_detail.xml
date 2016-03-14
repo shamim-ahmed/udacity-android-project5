@@ -25,6 +25,14 @@
                 app:expandedTitleMarginStart="@dimen/expand_title_margin_start"
                 app:expandedTitleMarginEnd="@dimen/expand_title_margin_end">
 
+            <ImageView
+                    android:id="@+id/backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="parallax"/>
+
         </android.support.design.widget.CollapsingToolbarLayout>
 
 
