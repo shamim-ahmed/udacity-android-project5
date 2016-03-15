@@ -125,7 +125,6 @@ public class ArticleListActivity extends ActionBarActivity implements
                 break;
             }
         }
-
     }
 
     @Override
@@ -153,17 +152,8 @@ public class ArticleListActivity extends ActionBarActivity implements
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ImageView thumbnailView = vh.getThumbnailView();
-
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this, thumbnailView, thumbnailView.getTransitionName())
-                                .toBundle();
-                        Intent intent = new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-                        startActivity(intent, bundle);
-                    } else {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
+                    startActivity(intent);
                 }
             });
             return vh;
