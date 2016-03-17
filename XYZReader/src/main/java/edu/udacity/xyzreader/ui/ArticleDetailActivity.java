@@ -11,11 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import edu.udacity.xyzreader.R;
 import edu.udacity.xyzreader.data.ItemsContract;
+import edu.udacity.xyzreader.util.DbUtils;
 
 /**
  * An activity representing a single Article detail screen, letting you swipe between articles.
@@ -46,10 +48,13 @@ public class ArticleDetailActivity extends AppCompatActivity {
             Cursor cursor = getContentResolver().query(contentUri, null, null, null, null);
 
             if (cursor != null) {
-                cursor.moveToFirst();
-                ContentValues values = readValues(cursor);
-                updateViews(values);
-                cursor.close();
+                try {
+                    cursor.moveToFirst();
+                    ContentValues values = readValues(cursor);
+                    updateViews(values);
+                } finally {
+                    DbUtils.close(cursor);
+                }
             }
         }
     }
@@ -69,6 +74,10 @@ public class ArticleDetailActivity extends AppCompatActivity {
         Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
         ImageView imageView = (ImageView) findViewById(R.id.article_image);
         Picasso.with(this).load(imageUri).fit().centerCrop().into(imageView);
+
+        // display body
+        TextView textView = (TextView) findViewById(R.id.article_body);
+        textView.setText(values.getAsString(ItemsContract.Items.BODY));
     }
 
     private ContentValues readValues(Cursor cursor) {
