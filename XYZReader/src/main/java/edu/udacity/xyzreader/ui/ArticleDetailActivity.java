@@ -8,6 +8,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
@@ -77,7 +78,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
 
         // display body
         TextView textView = (TextView) findViewById(R.id.article_body);
-        textView.setText(values.getAsString(ItemsContract.Items.BODY));
+        textView.setText(Html.fromHtml(values.getAsString(ItemsContract.Items.BODY)));
     }
 
     private ContentValues readValues(Cursor cursor) {
