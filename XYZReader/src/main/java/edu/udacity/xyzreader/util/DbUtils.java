@@ -29,7 +29,7 @@ public class DbUtils {
 
         String title = cursor.getString(titleIndex);
         String author = cursor.getString(authorIndex);
-        String publishedDateStr = cursor.getString(publishedDateIndex);
+        Long publishedDate = cursor.getLong(publishedDateIndex);
         String photoUrl = cursor.getString(photoUrlIndex);
         Double aspectRatio = cursor.getDouble(aspectRatioIndex);
         String body = cursor.getString(bodyIndex);
@@ -37,7 +37,7 @@ public class DbUtils {
         ContentValues values = new ContentValues();
         values.put(ItemsContract.Items.TITLE, title);
         values.put(ItemsContract.Items.AUTHOR, author);
-        values.put(ItemsContract.Items.PUBLISHED_DATE, publishedDateStr);
+        values.put(ItemsContract.Items.PUBLISHED_DATE, publishedDate);
         values.put(ItemsContract.Items.PHOTO_URL, photoUrl);
         values.put(ItemsContract.Items.ASPECT_RATIO, aspectRatio);
         values.put(ItemsContract.Items.BODY, body);

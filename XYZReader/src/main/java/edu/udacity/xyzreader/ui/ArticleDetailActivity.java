@@ -78,9 +78,9 @@ public class ArticleDetailActivity extends AppCompatActivity {
         titleView.setText(values.getAsString(ItemsContract.Items.TITLE));
 
         // display byline
-        String publishedDate = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
+        String publishedDateStr = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
         String author = values.getAsString(ItemsContract.Items.AUTHOR);
-        String byline = getString(R.string.article_byline, publishedDate, author);
+        String byline = getString(R.string.article_byline, publishedDateStr, author);
 
         TextView bylineView = (TextView) findViewById(R.id.article_byline);
         bylineView.setText(byline);
