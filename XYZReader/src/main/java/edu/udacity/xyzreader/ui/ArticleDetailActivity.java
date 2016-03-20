@@ -20,6 +20,7 @@ import com.squareup.picasso.Picasso;
 import edu.udacity.xyzreader.R;
 import edu.udacity.xyzreader.data.ItemsContract;
 import edu.udacity.xyzreader.util.DbUtils;
+import edu.udacity.xyzreader.util.StringUtils;
 
 /**
  * An activity representing a single Article detail screen, letting you swipe between articles.
@@ -75,6 +76,15 @@ public class ArticleDetailActivity extends AppCompatActivity {
         // display title
         TextView titleView = (TextView) findViewById(R.id.article_title);
         titleView.setText(values.getAsString(ItemsContract.Items.TITLE));
+
+        // display byline
+        String publishedDate = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
+        String author = values.getAsString(ItemsContract.Items.AUTHOR);
+        String byline = getString(R.string.article_byline, publishedDate, author);
+
+        TextView bylineView = (TextView) findViewById(R.id.article_byline);
+        bylineView.setText(byline);
+
 
         // load the image
         Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
