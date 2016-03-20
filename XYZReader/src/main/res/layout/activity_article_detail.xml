@@ -23,7 +23,8 @@
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:expandedTitleMarginStart="@dimen/expand_title_margin_start"
-                app:expandedTitleMarginEnd="@dimen/expand_title_margin_end">
+                app:expandedTitleMarginEnd="@dimen/expand_title_margin_end"
+                app:expandedTitleTextAppearance="@android:color/transparent">
 
             <edu.udacity.xyzreader.ui.ThreeTwoImageView
                     android:id="@+id/article_image"
@@ -64,6 +65,11 @@
                         style="@style/Widget.CardContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/article_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
 
                     <TextView
                             android:id="@+id/article_body"

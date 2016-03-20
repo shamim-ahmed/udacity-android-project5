@@ -3,6 +3,7 @@ package edu.udacity.xyzreader.ui;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.ActionBar;
@@ -66,9 +67,14 @@ public class ArticleDetailActivity extends AppCompatActivity {
     }
 
     private void updateViews(ContentValues values) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+            collapsingToolbar.setExpandedTitleTextAppearance(R.style.TransparentText);
+        }
+
         // display title
-        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(values.getAsString(ItemsContract.Items.TITLE));
+        TextView titleView = (TextView) findViewById(R.id.article_title);
+        titleView.setText(values.getAsString(ItemsContract.Items.TITLE));
 
         // load the image
         Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
