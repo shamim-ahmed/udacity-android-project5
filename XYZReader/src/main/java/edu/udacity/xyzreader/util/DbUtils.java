@@ -13,7 +13,6 @@ public class DbUtils {
         if (cursor != null) {
             try {
                 cursor.close();
-                ;
             } catch (Exception ex) {
                 Log.w(TAG, "Error while closing cursor", ex);
             }

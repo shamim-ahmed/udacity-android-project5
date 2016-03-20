@@ -48,14 +48,13 @@ public class ArticleDetailActivity extends AppCompatActivity {
         if (contentUri != null) {
             Cursor cursor = getContentResolver().query(contentUri, null, null, null, null);
 
-            if (cursor != null) {
-                try {
-                    cursor.moveToFirst();
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
                     ContentValues values = DbUtils.readValues(cursor);
                     updateViews(values);
-                } finally {
-                    DbUtils.close(cursor);
                 }
+            } finally {
+                DbUtils.close(cursor);
             }
         }
     }
