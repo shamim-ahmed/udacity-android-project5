@@ -77,14 +77,23 @@ public class ArticleDetailActivity extends AppCompatActivity {
         TextView titleView = (TextView) findViewById(R.id.article_title);
         titleView.setText(values.getAsString(ItemsContract.Items.TITLE));
 
-        // display byline
+        // compute byline
         String publishedDateStr = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
-        String author = values.getAsString(ItemsContract.Items.AUTHOR);
-        String byline = getString(R.string.article_byline, publishedDateStr, author);
 
+        if (StringUtils.isBlank(publishedDateStr)) {
+            publishedDateStr = getString(R.string.publish_date_default_value);
+        }
+
+        String author = values.getAsString(ItemsContract.Items.AUTHOR);
+
+        if (StringUtils.isBlank(author)) {
+            author = getString(R.string.author_default_value);
+        }
+
+        // display byline
+        String byline = constructByline(values);
         TextView bylineView = (TextView) findViewById(R.id.article_byline);
         bylineView.setText(byline);
-
 
         // load the image
         Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
@@ -94,5 +103,21 @@ public class ArticleDetailActivity extends AppCompatActivity {
         // display body
         TextView textView = (TextView) findViewById(R.id.article_body);
         textView.setText(Html.fromHtml(values.getAsString(ItemsContract.Items.BODY)));
+    }
+
+    private String constructByline(ContentValues values) {
+        String publishedDateStr = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
+
+        if (StringUtils.isBlank(publishedDateStr)) {
+            publishedDateStr = getString(R.string.publish_date_default_value);
+        }
+
+        String author = values.getAsString(ItemsContract.Items.AUTHOR);
+
+        if (StringUtils.isBlank(author)) {
+            author = getString(R.string.author_default_value);
+        }
+
+        return getString(R.string.article_byline, publishedDateStr, author);
     }
 }

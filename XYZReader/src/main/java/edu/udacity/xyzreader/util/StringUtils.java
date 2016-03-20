@@ -14,7 +14,7 @@ public class StringUtils {
 
     public static String formatDate(Long value) {
         if (value == null) {
-            return "Unknown date";
+            return "";
         }
 
         Date date = new Date(value);

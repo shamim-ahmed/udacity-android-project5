@@ -70,13 +70,13 @@
                             android:id="@+id/article_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"/>
+                            android:layout_marginBottom="@dimen/article_title_bottom_margin"/>
 
                     <TextView
                             android:id="@+id/article_byline"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"/>
+                            android:layout_marginBottom="@dimen/article_byline_bottom_margin"/>
 
                     <TextView
                             android:id="@+id/article_body"
