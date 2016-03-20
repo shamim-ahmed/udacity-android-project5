@@ -25,7 +25,7 @@
                 app:expandedTitleMarginStart="@dimen/expand_title_margin_start"
                 app:expandedTitleMarginEnd="@dimen/expand_title_margin_end">
 
-            <ImageView
+            <edu.udacity.xyzreader.ui.ThreeTwoImageView
                     android:id="@+id/article_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
