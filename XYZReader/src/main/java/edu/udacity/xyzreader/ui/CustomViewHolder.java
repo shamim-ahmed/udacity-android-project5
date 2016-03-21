@@ -20,8 +20,8 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
     public CustomViewHolder(View view) {
         super(view);
         thumbnailView = (ImageView) view.findViewById(R.id.thumbnail);
-        titleView = (TextView) view.findViewById(R.id.article_title);
-        subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
+        titleView = (TextView) view.findViewById(R.id.article_summary_title);
+        subtitleView = (TextView) view.findViewById(R.id.article_summary_subtitle);
     }
 
     public TextView getTitleView() {
@@ -52,4 +52,3 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
         Picasso.with(context).load(thumbnailUrl).fit().centerCrop().into(thumbnailView);
     }
 }
-

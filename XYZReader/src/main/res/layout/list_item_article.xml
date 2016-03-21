@@ -36,7 +36,7 @@
                 android:layout_gravity="bottom">
 
             <TextView
-                    android:id="@+id/article_title"
+                    android:id="@+id/article_summary_title"
                     style="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/white"
                     android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                     android:maxLines="4"/>
 
             <TextView
-                    android:id="@+id/article_subtitle"
+                    android:id="@+id/article_summary_subtitle"
                     style="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="@color/white"
                     android:layout_width="match_parent"

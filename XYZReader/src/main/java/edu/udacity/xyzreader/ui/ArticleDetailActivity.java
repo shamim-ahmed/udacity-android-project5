@@ -1,17 +1,20 @@
 package edu.udacity.xyzreader.ui;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -74,10 +77,11 @@ public class ArticleDetailActivity extends AppCompatActivity {
         }
 
         // display title
-        TextView titleView = (TextView) findViewById(R.id.article_title);
-        titleView.setText(values.getAsString(ItemsContract.Items.TITLE));
+        TextView titleView = (TextView) findViewById(R.id.article_detail_title);
+        final String title = values.getAsString(ItemsContract.Items.TITLE);
+        titleView.setText(title);
 
-        // compute byline
+        // compute subtitle
         String publishedDateStr = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
 
         if (StringUtils.isBlank(publishedDateStr)) {
@@ -90,19 +94,31 @@ public class ArticleDetailActivity extends AppCompatActivity {
             author = getString(R.string.author_default_value);
         }
 
-        // display byline
-        String byline = constructByline(values);
-        TextView bylineView = (TextView) findViewById(R.id.article_byline);
-        bylineView.setText(byline);
+        // display subtitle
+        String subtitle = constructByline(values);
+        TextView subtitleView = (TextView) findViewById(R.id.article_detail_subtitle);
+        subtitleView.setText(subtitle);
 
         // load the image
-        Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
+        final Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
         ImageView imageView = (ImageView) findViewById(R.id.article_image);
         Picasso.with(this).load(imageUri).fit().centerCrop().into(imageView);
 
         // display body
-        TextView textView = (TextView) findViewById(R.id.article_body);
+        TextView textView = (TextView) findViewById(R.id.article_detail_body);
         textView.setText(Html.fromHtml(values.getAsString(ItemsContract.Items.BODY)));
+
+        // share button
+        FloatingActionButton shareButton = (FloatingActionButton) findViewById(R.id.share_button);
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.putExtra("textToShare", getString(R.string.share_text_format, title, imageUri.toString()));
+                shareIntent.setType("text/plain");
+                startActivity(shareIntent);
+            }
+        });
     }
 
     private String constructByline(ContentValues values) {
@@ -118,6 +134,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
             author = getString(R.string.author_default_value);
         }
 
-        return getString(R.string.article_byline, publishedDateStr, author);
+        return getString(R.string.article_subtitle_format, publishedDateStr, author);
     }
 }

@@ -67,19 +67,19 @@
                         android:layout_height="wrap_content">
 
                     <TextView
-                            android:id="@+id/article_title"
+                            android:id="@+id/article_detail_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/article_title_bottom_margin"/>
 
                     <TextView
-                            android:id="@+id/article_byline"
+                            android:id="@+id/article_detail_subtitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/article_byline_bottom_margin"/>
 
                     <TextView
-                            android:id="@+id/article_body"
+                            android:id="@+id/article_detail_body"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
 
@@ -90,6 +90,7 @@
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
+            android:id="@+id/share_button"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             app:layout_anchor="@id/appbar"
