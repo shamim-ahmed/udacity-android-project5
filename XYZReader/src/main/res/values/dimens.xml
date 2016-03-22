@@ -17,6 +17,5 @@
     <dimen name="expand_title_margin_end">64dp</dimen>
     <dimen name="article_text_padding_top">24dp</dimen>
     <dimen name="card_margin">16dp</dimen>
-    <dimen name="article_byline_bottom_margin">10dp</dimen>
 
 </resources>
