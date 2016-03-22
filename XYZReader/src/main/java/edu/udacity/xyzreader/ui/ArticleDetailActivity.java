@@ -66,7 +66,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.article_detail_menu, menu);
+        getMenuInflater().inflate(R.menu.article_detail, menu);
         return true;
     }
 
@@ -95,7 +95,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         }
 
         // display subtitle
-        String subtitle = constructByline(values);
+        String subtitle = constructSubtitle(values);
         TextView subtitleView = (TextView) findViewById(R.id.article_detail_subtitle);
         subtitleView.setText(subtitle);
 
@@ -121,7 +121,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         });
     }
 
-    private String constructByline(ContentValues values) {
+    private String constructSubtitle(ContentValues values) {
         String publishedDateStr = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
 
         if (StringUtils.isBlank(publishedDateStr)) {

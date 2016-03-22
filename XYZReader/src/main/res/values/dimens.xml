@@ -15,7 +15,7 @@
     <dimen name="detail_backdrop_height">240dp</dimen>
     <dimen name="expand_title_margin_start">48dp</dimen>
     <dimen name="expand_title_margin_end">64dp</dimen>
-    <dimen name="article_text_padding_top">16dp</dimen>
+    <dimen name="article_text_padding_top">12dp</dimen>
     <dimen name="card_margin">16dp</dimen>
 
 </resources>
