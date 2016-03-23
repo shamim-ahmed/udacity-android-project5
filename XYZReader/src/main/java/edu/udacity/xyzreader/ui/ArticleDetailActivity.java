@@ -64,12 +64,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.article_detail, menu);
-        return true;
-    }
-
     private void updateViews(ContentValues values) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
@@ -80,19 +74,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
         TextView titleView = (TextView) findViewById(R.id.article_detail_title);
         final String title = values.getAsString(ItemsContract.Items.TITLE);
         titleView.setText(title);
-
-        // compute subtitle
-        String publishedDateStr = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
-
-        if (StringUtils.isBlank(publishedDateStr)) {
-            publishedDateStr = getString(R.string.publish_date_default_value);
-        }
-
-        String author = values.getAsString(ItemsContract.Items.AUTHOR);
-
-        if (StringUtils.isBlank(author)) {
-            author = getString(R.string.author_default_value);
-        }
 
         // display subtitle
         String subtitle = constructSubtitle(values);

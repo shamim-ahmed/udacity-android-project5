@@ -133,12 +133,6 @@ public class ArticleListActivity extends AppCompatActivity implements
         mRecyclerView.setAdapter(null);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
     private class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         private Cursor mCursor;
 
