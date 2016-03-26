@@ -18,9 +18,9 @@
             android:clipToPadding="false"
             android:scrollbarStyle="outsideOverlay"
             android:paddingTop="@dimen/article_list_padding_top"
-            android:paddingLeft="@dimen/list_side_margin"
-            android:paddingRight="@dimen/list_side_margin"
-            android:paddingBottom="28dp" />
+            android:paddingLeft="@dimen/list_side_padding"
+            android:paddingRight="@dimen/list_side_padding"
+            android:paddingBottom="@dimen/list_bottom_padding" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <FrameLayout
