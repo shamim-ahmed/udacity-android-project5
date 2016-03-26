@@ -3,6 +3,7 @@
 <resources>
     <!-- article list view -->
     <dimen name="article_list_padding_top">76dp</dimen>
+    <dimen name="article_list_elevation">8dp</dimen>
 
     <!-- article detail view -->
     <dimen name="detail_title_text_size">32sp</dimen>
