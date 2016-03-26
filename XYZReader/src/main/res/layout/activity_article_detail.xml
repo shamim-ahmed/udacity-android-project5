@@ -59,8 +59,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/card_margin"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="@dimen/article_detail_card_corner_radius"
+                    app:cardElevation="@dimen/article_detail_card_elevation">
 
                 <LinearLayout
                         style="@style/Widget.CardContent"
@@ -73,7 +73,7 @@
                             android:layout_height="wrap_content"
                             style="@style/TextAppearance.AppCompat.Title"
                             android:textStyle="bold"
-                            android:paddingBottom="4dp"
+                            android:paddingBottom="@dimen/article_detail_title_padding_bottom"
                             android:ellipsize="end"
                             android:maxLines="4"/>
 
@@ -82,7 +82,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             style="@style/TextAppearance.AppCompat.Subhead"
-                            android:paddingBottom="16dp"
+                            android:paddingBottom="@dimen/article_detail_subtitle_padding_bottom"
                             android:maxLines="2"
                             android:singleLine="true"
                             android:ellipsize="end"/>

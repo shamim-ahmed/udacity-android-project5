@@ -12,6 +12,8 @@
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="toolbar_container_height">72dp</dimen>
     <dimen name="article_detail_padding_top">72dp</dimen>
+    <dimen name="article_detail_title_padding_bottom">4dp</dimen>
+    <dimen name="article_detail_subtitle_padding_bottom">16dp</dimen>
 
     <dimen name="detail_backdrop_height">240dp</dimen>
     <dimen name="expand_title_margin_start">48dp</dimen>
@@ -19,4 +21,6 @@
     <dimen name="article_card_padding_top">12dp</dimen>
     <dimen name="card_margin">16dp</dimen>
 
+    <dimen name="article_detail_card_corner_radius">8dp</dimen>
+    <dimen name="article_detail_card_elevation">8dp</dimen>
 </resources>
