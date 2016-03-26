@@ -90,7 +90,8 @@
                     <TextView
                             android:id="@+id/article_detail_body"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:textColorLink="@color/blue"/>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
