@@ -30,4 +30,7 @@
 
     <dimen name="article_detail_card_corner_radius">8dp</dimen>
     <dimen name="article_detail_card_elevation">8dp</dimen>
+
+    <dimen name="article_detail_scrollView_padding_left">0dp</dimen>
+    <dimen name="article_detail_scrollView_padding_right">0dp</dimen>
 </resources>

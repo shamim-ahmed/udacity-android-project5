@@ -52,6 +52,8 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingLeft="@dimen/article_detail_scrollView_padding_left"
+                android:paddingRight="@dimen/article_detail_scrollView_padding_right"
                 android:orientation="vertical"
                 android:paddingTop="@dimen/article_card_padding_top">
 
