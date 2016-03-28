@@ -6,13 +6,14 @@ import android.net.Uri;
 import android.os.AsyncTask;
 
 import edu.udacity.xyzreader.ui.ArticleDetailActivity;
+import edu.udacity.xyzreader.ui.ArticleDetailFragment;
 import edu.udacity.xyzreader.util.DbUtils;
 
 public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
-    private final ArticleDetailActivity activity;
+    private final ArticleDetailFragment fragment;
 
-    public LoadArticleTask(ArticleDetailActivity activity) {
-        this.activity = activity;
+    public LoadArticleTask(ArticleDetailFragment fragment) {
+        this.fragment = fragment;
     }
 
     @Override
@@ -22,7 +23,7 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
         }
 
         Uri contentUri = params[0];
-        Cursor cursor = activity.getContentResolver().query(contentUri, null, null, null, null);
+        Cursor cursor = fragment.getActivity().getContentResolver().query(contentUri, null, null, null, null);
         ContentValues values = null;
 
         try {
@@ -38,6 +39,6 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
 
     @Override
     protected void onPostExecute(ContentValues values) {
-        activity.updateViews(values);
+        fragment.updateViews(values);
     }
 }
