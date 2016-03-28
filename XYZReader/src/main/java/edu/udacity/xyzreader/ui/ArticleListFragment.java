@@ -183,6 +183,6 @@ public class ArticleListFragment extends Fragment implements
     }
 
     public interface Callback {
-        public void onItemSelected(Uri contentUri);
+        void onItemSelected(Uri contentUri);
     }
 }
