@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import edu.udacity.xyzreader.R;
 import edu.udacity.xyzreader.data.ItemsContract;
-import edu.udacity.xyzreader.tasks.ReadArticleTask;
+import edu.udacity.xyzreader.tasks.LoadArticleTask;
 import edu.udacity.xyzreader.util.StringUtils;
 
 /**
@@ -48,7 +48,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         Uri contentUri = getIntent().getData();
         Log.i(TAG, String.format("The item URI is : %s", contentUri));
 
-        ReadArticleTask task = new ReadArticleTask(this);
+        LoadArticleTask task = new LoadArticleTask(this);
         task.execute(contentUri);
     }
 

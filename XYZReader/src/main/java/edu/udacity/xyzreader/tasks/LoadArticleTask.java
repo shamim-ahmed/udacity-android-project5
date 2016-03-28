@@ -8,10 +8,10 @@ import android.os.AsyncTask;
 import edu.udacity.xyzreader.ui.ArticleDetailActivity;
 import edu.udacity.xyzreader.util.DbUtils;
 
-public class ReadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
+public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
     private final ArticleDetailActivity activity;
 
-    public ReadArticleTask(ArticleDetailActivity activity) {
+    public LoadArticleTask(ArticleDetailActivity activity) {
         this.activity = activity;
     }
 
