@@ -1,7 +1,9 @@
 package edu.udacity.xyzreader.ui;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import edu.udacity.xyzreader.R;
 
@@ -11,11 +13,20 @@ import edu.udacity.xyzreader.R;
  * touched, lead to a {@link ArticleDetailActivity} representing item details. On tablets, the
  * activity presents a grid of items as cards.
  */
-public class ArticleListActivity extends AppCompatActivity {
+public class ArticleListActivity extends AppCompatActivity implements ArticleListFragment.Callback {
+    private static final String TAG = ArticleListActivity.class.getSimpleName();
+
+    private boolean twoPaneRenderMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
+        twoPaneRenderMode = (findViewById(R.id.article_detail_container) != null);
+    }
+
+    @Override
+    public void onItemSelected(Uri contentUri) {
+        Log.i(TAG, "content uri : " + contentUri);
     }
 }

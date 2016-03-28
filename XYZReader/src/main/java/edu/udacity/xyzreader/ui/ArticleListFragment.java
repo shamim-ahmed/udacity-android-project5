@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -99,7 +100,7 @@ public class ArticleListFragment extends Fragment implements
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        CustomAdapter adapter = new CustomAdapter(cursor);
+        final CustomAdapter adapter = new CustomAdapter(cursor);
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
 
@@ -121,6 +122,18 @@ public class ArticleListFragment extends Fragment implements
                 break;
             }
         }
+
+        mRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View selectedView) {
+                int position = mRecyclerView.getChildLayoutPosition(selectedView);
+                Long itemId = adapter.getItemId(position);
+                Uri contentUri = ItemsContract.Items.buildItemUri(itemId);
+
+                ArticleListActivity activity = (ArticleListActivity) getActivity();
+                activity.onItemSelected(contentUri);
+            }
+        });
     }
 
     @Override
@@ -175,5 +188,9 @@ public class ArticleListFragment extends Fragment implements
         public int getItemCount() {
             return mCursor.getCount();
         }
+    }
+
+    public interface Callback {
+        public void onItemSelected(Uri contentUri);
     }
 }
