@@ -30,12 +30,22 @@ public class ArticleListFragment extends Fragment implements
     private RecyclerView mRecyclerView;
     private boolean mIsRefreshing = false;
 
+    private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
+                mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
+                updateRefreshingUI();
+            }
+        }
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        ArticleListActivity activity = (ArticleListActivity) getActivity();
+        Activity activity = getActivity();
         View view = inflater.inflate(R.layout.fragment_article_list, container, false);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
@@ -52,7 +62,6 @@ public class ArticleListFragment extends Fragment implements
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         activity.getLoaderManager().initLoader(0, null, this);
-
 
         if (savedInstanceState == null) {
             refresh();
@@ -78,16 +87,6 @@ public class ArticleListFragment extends Fragment implements
         Activity activity = getActivity();
         activity.startService(new Intent(activity, UpdaterService.class));
     }
-
-    private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
-                mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
-                updateRefreshingUI();
-            }
-        }
-    };
 
     private void updateRefreshingUI() {
         mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
