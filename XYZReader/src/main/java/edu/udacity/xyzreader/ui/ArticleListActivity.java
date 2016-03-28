@@ -1,5 +1,6 @@
 package edu.udacity.xyzreader.ui;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,5 +29,13 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
     @Override
     public void onItemSelected(Uri contentUri) {
         Log.i(TAG, "content uri : " + contentUri);
+
+        if (twoPaneRenderMode) {
+            // TODO implement it
+        } else {
+            Intent intent = new Intent(this, ArticleDetailActivity.class);
+            intent.setData(contentUri);
+            startActivity(intent);
+        }
     }
 }

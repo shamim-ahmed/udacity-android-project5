@@ -26,7 +26,7 @@ import edu.udacity.xyzreader.tasks.LoadArticleTask;
 import edu.udacity.xyzreader.util.StringUtils;
 
 public class ArticleDetailFragment extends Fragment {
-    private static final String TAG = ArticleDetailActivity.class.getSimpleName();
+    private static final String TAG = ArticleDetailFragment.class.getSimpleName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,

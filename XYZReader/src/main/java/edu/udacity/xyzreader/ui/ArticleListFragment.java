@@ -122,18 +122,6 @@ public class ArticleListFragment extends Fragment implements
                 break;
             }
         }
-
-        mRecyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View selectedView) {
-                int position = mRecyclerView.getChildLayoutPosition(selectedView);
-                Long itemId = adapter.getItemId(position);
-                Uri contentUri = ItemsContract.Items.buildItemUri(itemId);
-
-                ArticleListActivity activity = (ArticleListActivity) getActivity();
-                activity.onItemSelected(contentUri);
-            }
-        });
     }
 
     @Override
@@ -161,8 +149,12 @@ public class ArticleListFragment extends Fragment implements
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-                    startActivity(intent);
+                    int position = vh.getAdapterPosition();
+                    Long itemId = getItemId(position);
+                    Uri contentUri = ItemsContract.Items.buildItemUri(itemId);
+
+                    ArticleListActivity activity = (ArticleListActivity) getActivity();
+                    activity.onItemSelected(contentUri);
                 }
             });
             return vh;
