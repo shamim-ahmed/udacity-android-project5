@@ -2,7 +2,6 @@ package edu.udacity.xyzreader.ui;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import edu.udacity.xyzreader.R;
 import edu.udacity.xyzreader.data.ItemsContract;
-import edu.udacity.xyzreader.util.DbUtils;
+import edu.udacity.xyzreader.tasks.ReadArticleTask;
 import edu.udacity.xyzreader.util.StringUtils;
 
 /**
@@ -49,21 +48,11 @@ public class ArticleDetailActivity extends AppCompatActivity {
         Uri contentUri = getIntent().getData();
         Log.i(TAG, String.format("The item URI is : %s", contentUri));
 
-        if (contentUri != null) {
-            Cursor cursor = getContentResolver().query(contentUri, null, null, null, null);
-
-            try {
-                if (cursor != null && cursor.moveToFirst()) {
-                    ContentValues values = DbUtils.readValues(cursor);
-                    updateViews(values);
-                }
-            } finally {
-                DbUtils.close(cursor);
-            }
-        }
+        ReadArticleTask task = new ReadArticleTask(this);
+        task.execute(contentUri);
     }
 
-    private void updateViews(ContentValues values) {
+    public void updateViews(ContentValues values) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
             collapsingToolbar.setExpandedTitleTextAppearance(R.style.TransparentText);
