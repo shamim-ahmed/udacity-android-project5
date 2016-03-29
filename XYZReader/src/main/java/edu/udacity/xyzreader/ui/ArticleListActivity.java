@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import edu.udacity.xyzreader.R;
+import edu.udacity.xyzreader.util.Constants;
 
 /**
  * An activity representing a list of Articles. This activity has different presentations for
@@ -28,10 +29,26 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
 
     @Override
     public void onItemSelected(Uri contentUri) {
-        Log.i(TAG, "content uri : " + contentUri);
+        if (contentUri == null) {
+            Log.w(TAG, "content URI is null, will take no action");
+            return;
+        }
+
+        Log.i(TAG, String.format("content uri : %s", contentUri));
 
         if (twoPaneRenderMode) {
-            // TODO implement it
+            ArticleDetailFragment detailFragment = new ArticleDetailFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(Constants.CONTENT_URI_ATTR_NAME, contentUri);
+            detailFragment.setArguments(bundle);
+
+            try {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.article_detail_container, detailFragment, Constants.ARTICLE_DETAIL_FRAGMENT_TAG)
+                .commitAllowingStateLoss();
+            } catch (Exception ex) {
+                Log.w(TAG, "Error while committing fragment transaction", ex);
+            }
         } else {
             Intent intent = new Intent(this, ArticleDetailActivity.class);
             intent.setData(contentUri);

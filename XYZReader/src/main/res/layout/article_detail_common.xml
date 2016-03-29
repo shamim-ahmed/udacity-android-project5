@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/article_detail_scrollView_padding_left"
+            android:paddingRight="@dimen/article_detail_scrollView_padding_right"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/article_card_padding_top">
+
+        <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin"
+                app:cardCornerRadius="@dimen/article_detail_card_corner_radius"
+                app:cardElevation="@dimen/article_detail_card_elevation">
+
+            <LinearLayout
+                    style="@style/Widget.CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/article_detail_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:textStyle="bold"
+                        android:paddingBottom="@dimen/article_detail_title_padding_bottom"
+                        android:ellipsize="end"
+                        android:maxLines="4"/>
+
+                <TextView
+                        android:id="@+id/article_detail_subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.AppCompat.Subhead"
+                        android:paddingBottom="@dimen/article_detail_subtitle_padding_bottom"
+                        android:maxLines="2"
+                        android:singleLine="true"
+                        android:ellipsize="end"/>
+
+                <TextView
+                        android:id="@+id/article_detail_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorLink="@color/blue"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
