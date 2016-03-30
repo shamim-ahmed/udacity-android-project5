@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <ImageView
+        <edu.udacity.xyzreader.ui.ThreeTwoImageView
                 android:id="@+id/article_image"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
