@@ -24,7 +24,7 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
 
         Uri contentUri = params[0];
         Cursor cursor = fragment.getActivity().getContentResolver().query(contentUri, null, null, null, null);
-        ContentValues values = null;
+        ContentValues values = new ContentValues();
 
         try {
             if (cursor != null && cursor.moveToFirst()) {

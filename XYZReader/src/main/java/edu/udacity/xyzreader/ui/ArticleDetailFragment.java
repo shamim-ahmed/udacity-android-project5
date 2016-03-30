@@ -1,5 +1,6 @@
 package edu.udacity.xyzreader.ui;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
@@ -23,6 +24,7 @@ import com.squareup.picasso.Picasso;
 import edu.udacity.xyzreader.R;
 import edu.udacity.xyzreader.data.ItemsContract;
 import edu.udacity.xyzreader.tasks.LoadArticleTask;
+import edu.udacity.xyzreader.util.Constants;
 import edu.udacity.xyzreader.util.StringUtils;
 
 public class ArticleDetailFragment extends Fragment {
@@ -33,19 +35,31 @@ public class ArticleDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_article_detail, container, false);
-        ArticleDetailActivity activity = (ArticleDetailActivity) getActivity();
+        Activity activity = getActivity();
 
         // add back button to go to home screen
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        activity.setSupportActionBar(toolbar);
-        ActionBar actionBar = activity.getSupportActionBar();
 
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        boolean flag = activity instanceof ArticleDetailActivity;
+
+        if (toolbar != null && flag) {
+            ArticleDetailActivity articleDetailActivity = (ArticleDetailActivity) activity;
+            articleDetailActivity.setSupportActionBar(toolbar);
+            ActionBar actionBar = articleDetailActivity.getSupportActionBar();
+
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+            }
         }
 
         // find the item
-        Uri contentUri = activity.getIntent().getData();
+        Uri contentUri;
+
+        if (flag) {
+            contentUri = activity.getIntent().getData();
+        } else {
+            contentUri = (Uri) getArguments().get(Constants.CONTENT_URI_ATTR_NAME);
+        }
         Log.i(TAG, String.format("The item URI is : %s", contentUri));
 
         LoadArticleTask task = new LoadArticleTask(this);
