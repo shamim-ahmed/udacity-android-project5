@@ -15,10 +15,12 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/article_card_padding_top">
 
-            <LinearLayout
-                    style="@style/Widget.CardContent"
+            <edu.udacity.xyzreader.ui.ThreeTwoImageView
+                    android:id="@+id/article_image"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:fitsSystemWindows="true"/>
 
                 <TextView
                         android:id="@+id/article_detail_title"
@@ -46,6 +48,5 @@
                         android:layout_height="wrap_content"
                         android:textColorLink="@color/blue"/>
 
-            </LinearLayout>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
