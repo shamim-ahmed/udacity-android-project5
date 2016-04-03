@@ -35,4 +35,5 @@
 
     <dimen name="article_detail_scrollView_padding_left">0dp</dimen>
     <dimen name="article_detail_scrollView_padding_right">0dp</dimen>
+    <dimen name="article_detail_image_margin_bottom">0dp</dimen>
 </resources>
