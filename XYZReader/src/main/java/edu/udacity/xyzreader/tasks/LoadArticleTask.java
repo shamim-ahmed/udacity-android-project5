@@ -17,7 +17,7 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
 
     @Override
     protected ContentValues doInBackground(Uri... params) {
-        if (params == null || params.length == 0) {
+        if (params == null || params.length == 0 || fragment == null) {
             return null;
         }
 
