@@ -39,6 +39,8 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
 
     @Override
     protected void onPostExecute(ContentValues values) {
-        fragment.updateViews(values);
+        if (fragment != null) {
+            fragment.updateViews(values);
+        }
     }
 }

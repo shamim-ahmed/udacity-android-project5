@@ -102,7 +102,11 @@ public class ArticleDetailFragment extends Fragment {
 
         // display body
         TextView textView = (TextView) view.findViewById(R.id.article_detail_body);
-        textView.setText(Html.fromHtml(values.getAsString(ItemsContract.Items.BODY)));
+        String bodyText = values.getAsString(ItemsContract.Items.BODY);
+
+        if (!StringUtils.isBlank(bodyText)) {
+            textView.setText(Html.fromHtml(bodyText));
+        }
 
         // share button
         FloatingActionButton shareButton = (FloatingActionButton) view.findViewById(R.id.share_button);
