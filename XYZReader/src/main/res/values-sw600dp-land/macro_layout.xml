@@ -4,4 +4,7 @@
 
     <dimen name="detail_photo_height">600dp</dimen>
     <dimen name="detail_card_top_margin">256dp</dimen>
+
+    <integer name="article_list_weight">3</integer>
+    <integer name="article_detail_weight">2</integer>
 </resources>
