@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resources>
-    <dimen name="article_detail_scrollView_padding_left">72dp</dimen>
-    <dimen name="article_detail_scrollView_padding_right">72dp</dimen>
+    <dimen name="article_detail_scrollView_padding_left">16dp</dimen>
+    <dimen name="article_detail_scrollView_padding_right">16dp</dimen>
 </resources>

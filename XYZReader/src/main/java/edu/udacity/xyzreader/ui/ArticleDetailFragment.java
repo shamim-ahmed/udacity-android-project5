@@ -92,9 +92,13 @@ public class ArticleDetailFragment extends Fragment {
         subtitleView.setText(subtitle);
 
         // load the image
-        final Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
-        ImageView imageView = (ImageView) view.findViewById(R.id.article_image);
-        Picasso.with(getActivity()).load(imageUri).fit().centerCrop().into(imageView);
+        final String imageUriStr = values.getAsString(ItemsContract.Items.PHOTO_URL);
+
+        if (!StringUtils.isBlank(imageUriStr)) {
+            final Uri imageUri = Uri.parse(values.getAsString(ItemsContract.Items.PHOTO_URL));
+            ImageView imageView = (ImageView) view.findViewById(R.id.article_image);
+            Picasso.with(getActivity()).load(imageUri).fit().centerCrop().into(imageView);
+        }
 
         // display body
         TextView textView = (TextView) view.findViewById(R.id.article_detail_body);
@@ -106,7 +110,7 @@ public class ArticleDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.putExtra("textToShare", getString(R.string.share_text_format, title, imageUri.toString()));
+                shareIntent.putExtra("textToShare", getString(R.string.share_text_format, title, imageUriStr));
                 shareIntent.setType("text/plain");
                 startActivity(shareIntent);
             }
