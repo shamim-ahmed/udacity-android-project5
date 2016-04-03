@@ -1,5 +1,6 @@
 package edu.udacity.xyzreader.tasks;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
@@ -21,8 +22,14 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
             return null;
         }
 
+        Activity activity = fragment.getActivity();
+
+        if (activity == null) {
+            return null;
+        }
+
         Uri contentUri = params[0];
-        Cursor cursor = fragment.getActivity().getContentResolver().query(contentUri, null, null, null, null);
+        Cursor cursor = activity.getContentResolver().query(contentUri, null, null, null, null);
         ContentValues values = new ContentValues();
 
         try {
