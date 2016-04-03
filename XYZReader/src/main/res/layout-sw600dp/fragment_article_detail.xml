@@ -10,6 +10,7 @@
 
     <include
             layout="@layout/article_detail_common"
+            android:layout_marginRight="@dimen/article_detail_margin_right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
