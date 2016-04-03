@@ -4,6 +4,7 @@
     <!-- article list view -->
     <dimen name="article_list_padding_top">76dp</dimen>
     <dimen name="article_list_elevation">8dp</dimen>
+    <dimen name="article_list_container_padding_top">0dp</dimen>
 
     <!-- article list item -->
     <dimen name="article_list_card_margin">4dp</dimen>
