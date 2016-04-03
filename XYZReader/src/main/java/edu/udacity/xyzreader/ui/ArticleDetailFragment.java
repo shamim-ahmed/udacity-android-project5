@@ -109,12 +109,14 @@ public class ArticleDetailFragment extends Fragment {
         }
 
         // share button
-        FloatingActionButton shareButton = (FloatingActionButton) view.findViewById(R.id.share_button);
+        final FloatingActionButton shareButton = (FloatingActionButton) view.findViewById(R.id.share_button);
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.putExtra("textToShare", getString(R.string.share_text_format, title, imageUriStr));
+                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, title);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text_format, title, imageUriStr));
                 shareIntent.setType("text/plain");
                 startActivity(shareIntent);
             }
