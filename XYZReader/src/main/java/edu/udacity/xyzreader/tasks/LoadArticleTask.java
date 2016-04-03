@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import edu.udacity.xyzreader.ui.ArticleDetailActivity;
 import edu.udacity.xyzreader.ui.ArticleDetailFragment;
 import edu.udacity.xyzreader.util.DbUtils;
 
