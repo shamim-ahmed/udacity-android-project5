@@ -114,7 +114,6 @@ public class ArticleDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, title);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text_format, title, imageUriStr));
                 shareIntent.setType("text/plain");
