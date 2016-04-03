@@ -4,22 +4,34 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              android:baselineAligned="false"
-              android:paddingTop="@dimen/article_list_container_padding_top">
+              android:orientation="vertical">
 
-    <fragment
-            android:id="@+id/article_list_fragment"
-            android:name="edu.udacity.xyzreader.ui.ArticleListFragment"
-            tools:layout="@layout/fragment_article_list"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="@integer/article_list_weight"/>
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary" />
 
-    <FrameLayout
-            android:id="@+id/article_detail_container"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="@integer/article_detail_weight"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:baselineAligned="false"
+                  android:paddingTop="@dimen/article_list_container_padding_top">
 
+        <fragment
+                android:id="@+id/article_list_fragment"
+                android:name="edu.udacity.xyzreader.ui.ArticleListFragment"
+                tools:layout="@layout/fragment_article_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="@integer/article_list_weight"/>
+
+        <FrameLayout
+                android:id="@+id/article_detail_container"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="@integer/article_detail_weight"/>
+
+    </LinearLayout>
 </LinearLayout>

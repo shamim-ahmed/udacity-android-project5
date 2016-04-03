@@ -5,11 +5,14 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import edu.udacity.xyzreader.ui.ArticleDetailFragment;
 import edu.udacity.xyzreader.util.DbUtils;
 
 public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
+    private static final String TAG = LoadArticleTask.class.getSimpleName();
+
     private final ArticleDetailFragment fragment;
 
     public LoadArticleTask(ArticleDetailFragment fragment) {
@@ -29,13 +32,17 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
         }
 
         Uri contentUri = params[0];
-        Cursor cursor = activity.getContentResolver().query(contentUri, null, null, null, null);
+        Cursor cursor = null;
         ContentValues values = new ContentValues();
 
         try {
+            cursor = activity.getContentResolver().query(contentUri, null, null, null, null);
+
             if (cursor != null && cursor.moveToFirst()) {
                 values = DbUtils.readValues(cursor);
             }
+        } catch (Exception ex) {
+            Log.e(TAG, "error while retrieving data from database", ex);
         } finally {
             DbUtils.close(cursor);
         }
