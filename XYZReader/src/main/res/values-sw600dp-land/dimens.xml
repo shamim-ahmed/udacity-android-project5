@@ -4,4 +4,5 @@
     <dimen name="fab_margin">20dp</dimen>
     <dimen name="article_list_container_padding_top">20dp</dimen>
     <dimen name="article_detail_image_margin_bottom">12dp</dimen>
+    <dimen name="article_detail_scrollView_padding_left">0dp</dimen>
 </resources>
