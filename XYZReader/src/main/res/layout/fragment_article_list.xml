@@ -30,7 +30,7 @@
             android:background="?colorPrimary"
             android:elevation="@dimen/article_list_elevation">
 
-        <include layout="@layout/toolbar"/>
+        <include layout="@layout/appbar"/>
     </FrameLayout>
 
 </FrameLayout>
