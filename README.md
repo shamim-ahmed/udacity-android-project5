@@ -29,3 +29,8 @@ To “meet specifications”, your app must fulfill all of the criteria listed i
 10. Color theme does not impact usability of the app.
 11. App uses images that are high quality, specific, and full bleed.
 12. App uses fonts that are either the Android defaults, are complementary, and aren't otherwise distracting.
+
+##Acknowledgement
+The following demo was quite helpful: 
+
+https://github.com/chrisbanes/cheesesquare
