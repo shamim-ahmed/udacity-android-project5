@@ -29,6 +29,7 @@
     <dimen name="expand_title_margin_end">64dp</dimen>
     <dimen name="article_card_padding_top">12dp</dimen>
     <dimen name="card_margin">16dp</dimen>
+    <dimen name="card_width">300dp</dimen>
 
     <dimen name="article_detail_card_corner_radius">8dp</dimen>
     <dimen name="article_detail_card_elevation">8dp</dimen>

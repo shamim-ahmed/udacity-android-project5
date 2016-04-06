@@ -58,8 +58,9 @@
                 android:paddingTop="@dimen/article_card_padding_top">
 
             <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/card_width"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_margin="@dimen/card_margin"
                     app:cardCornerRadius="@dimen/article_detail_card_corner_radius"
                     app:cardElevation="@dimen/article_detail_card_elevation">
