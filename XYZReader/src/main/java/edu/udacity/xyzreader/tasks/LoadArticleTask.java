@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import edu.udacity.xyzreader.R;
+import edu.udacity.xyzreader.data.ItemsContract;
 import edu.udacity.xyzreader.ui.ArticleDetailFragment;
 import edu.udacity.xyzreader.util.DbUtils;
 
@@ -40,6 +42,8 @@ public class LoadArticleTask extends AsyncTask<Uri, Void, ContentValues> {
 
             if (cursor != null && cursor.moveToFirst()) {
                 values = DbUtils.readValues(cursor);
+            } else {
+                values.put(ItemsContract.Items.TITLE, activity.getString(R.string.article_title_default_value));
             }
         } catch (Exception ex) {
             Log.e(TAG, "error while retrieving data from database", ex);

@@ -13,7 +13,6 @@
     <string name="display_spec" translatable="false">default</string>
     <string name="menu_settings">Settings</string>
     <string name="article_subtitle_format">%1$s by %2$s</string>
-    <string name="publish_date_default_value">Unknown date</string>
-    <string name="author_default_value">Anon</string>
+    <string name="article_title_default_value">Please reload the article</string>
     <string name="share_text_format">%1$s : %2$s</string>
 </resources>

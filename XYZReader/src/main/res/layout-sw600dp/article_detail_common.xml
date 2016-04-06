@@ -23,31 +23,6 @@
                     android:layout_marginBottom="@dimen/article_detail_image_margin_bottom"
                     android:fitsSystemWindows="true"/>
 
-                <TextView
-                        android:id="@+id/article_detail_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/TextAppearance.AppCompat.Title"
-                        android:textStyle="bold"
-                        android:paddingBottom="@dimen/article_detail_title_padding_bottom"
-                        android:ellipsize="end"
-                        android:maxLines="4"/>
-
-                <TextView
-                        android:id="@+id/article_detail_subtitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/TextAppearance.AppCompat.Subhead"
-                        android:paddingBottom="@dimen/article_detail_subtitle_padding_bottom"
-                        android:maxLines="2"
-                        android:singleLine="true"
-                        android:ellipsize="end"/>
-
-                <TextView
-                        android:id="@+id/article_detail_body"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColorLink="@color/blue"/>
-
+            <include layout="@layout/article_common_fields"/>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

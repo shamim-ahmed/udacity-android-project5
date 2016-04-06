@@ -124,18 +124,17 @@ public class ArticleDetailFragment extends Fragment {
 
     private String constructSubtitle(ContentValues values) {
         String publishedDateStr = StringUtils.formatDate(values.getAsLong(ItemsContract.Items.PUBLISHED_DATE));
-
-        if (StringUtils.isBlank(publishedDateStr)) {
-            publishedDateStr = getString(R.string.publish_date_default_value);
-        }
-
         String author = values.getAsString(ItemsContract.Items.AUTHOR);
 
-        if (StringUtils.isBlank(author)) {
-            author = getString(R.string.author_default_value);
+        String result;
+
+        if (!StringUtils.isBlank(publishedDateStr) && !StringUtils.isBlank(author)) {
+            result = getString(R.string.article_subtitle_format, publishedDateStr, author);
+        } else {
+            result = StringUtils.EMPTY_STR;
         }
 
-        return getString(R.string.article_subtitle_format, publishedDateStr, author);
+        return result;
     }
 }
 

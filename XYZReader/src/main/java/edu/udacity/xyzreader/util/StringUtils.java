@@ -7,6 +7,7 @@ import java.util.Locale;
 
 public class StringUtils {
     public static final String DATE_FORMAT_STR = "dd/MM/yyyy";
+    public static final String EMPTY_STR = "";
 
     public static boolean isBlank(String str) {
         return str == null || str.trim().equals("");
@@ -14,7 +15,7 @@ public class StringUtils {
 
     public static String formatDate(Long value) {
         if (value == null) {
-            return "";
+            return EMPTY_STR;
         }
 
         Date date = new Date(value);
