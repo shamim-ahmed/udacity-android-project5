@@ -26,6 +26,5 @@
                 android:src="@drawable/logo"
                 android:contentDescription="@string/app_name"/>
 
-    </android.support.v7.widget.Toolbar
->
+    </android.support.v7.widget.Toolbar>
 </android.support.design.widget.AppBarLayout>
